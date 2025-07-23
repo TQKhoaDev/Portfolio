@@ -93,7 +93,7 @@ const About = () => {
               variants={itemVariants}
               className="text-4xl font-bold text-slate-800 mb-12 leading-tight text-center"
             >
-              Xin chào! Tôi là
+              Xin chào! Tôi là 2
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 {" "}
                 Trần Quốc Khoa
