@@ -12,6 +12,8 @@
     scroll-behavior: smooth;
     /* Prevent horizontal scroll on mobile */
     overflow-x: hidden;
+    /* Ensure stable page height */
+    min-height: 100%;
   }
   
   body {
@@ -21,10 +23,12 @@
     /* Better text rendering */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* Add padding to prevent header overlap */
-    padding-top: 80px;
+    /* Remove padding to fix double scroll */
+    /* padding-top: 80px; */
     /* Better line height for Vietnamese text */
     line-height: 1.6;
+    /* Ensure stable page height */
+    min-height: 100vh;
   }
   
   /* Adjust scroll offset for anchor links */
@@ -34,9 +38,13 @@
   
   /* Special handling for hero section */
   #home {
-    margin-top: -80px;
+    /* Remove negative margin since body no longer has padding */
+    /* margin-top: -80px; */
     padding-top: 80px;
-    min-height: 100vh !important;
+    /* Fix: Make total height = 100vh instead of 100vh + padding */
+    min-height: calc(100vh - 80px) !important;
+    height: 100vh;
+    box-sizing: border-box;
   }
   
   /* Fix Vietnamese text rendering */
@@ -186,12 +194,18 @@
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
   }
+  
+  /* Prevent layout shift from footer */
+  footer, [role="contentinfo"] {
+    contain: layout;
+  }
 }
 
 /* Mobile-specific fixes */
 @media (max-width: 640px) {
   body {
-    padding-top: 64px;
+    /* Remove padding to fix double scroll */
+    /* padding-top: 64px; */
     line-height: 1.6;
   }
   
@@ -200,9 +214,13 @@
   }
   
   #home {
-    margin-top: -64px;
+    /* Remove negative margin since body no longer has padding */
+    /* margin-top: -64px; */
     padding-top: 64px;
-    min-height: 100vh !important;
+    /* Fix: Make total height = 100vh instead of 100vh + padding */
+    min-height: calc(100vh - 64px) !important;
+    height: 100vh;
+    box-sizing: border-box;
   }
   
   .container-custom {
@@ -231,7 +249,8 @@
 /* Tablet optimizations */
 @media (min-width: 641px) and (max-width: 1024px) {
   body {
-    padding-top: 72px;
+    /* Remove padding to fix double scroll */
+    /* padding-top: 72px; */
     line-height: 1.6;
   }
   
@@ -240,9 +259,13 @@
   }
   
   #home {
-    margin-top: -72px;
+    /* Remove negative margin since body no longer has padding */
+    /* margin-top: -72px; */
     padding-top: 72px;
-    min-height: 100vh !important;
+    /* Fix: Make total height = 100vh instead of 100vh + padding */
+    min-height: calc(100vh - 72px) !important;
+    height: 100vh;
+    box-sizing: border-box;
   }
   
   .container-custom {
@@ -258,7 +281,8 @@
 /* Desktop optimizations */
 @media (min-width: 1025px) {
   body {
-    padding-top: 80px;
+    /* Remove padding to fix double scroll */
+    /* padding-top: 80px; */
     line-height: 1.6;
   }
   
@@ -267,9 +291,13 @@
   }
   
   #home {
-    margin-top: -80px;
+    /* Remove negative margin since body no longer has padding */
+    /* margin-top: -80px; */
     padding-top: 80px;
-    min-height: 100vh !important;
+    /* Fix: Make total height = 100vh instead of 100vh + padding */
+    min-height: calc(100vh - 80px) !important;
+    height: 100vh;
+    box-sizing: border-box;
   }
   
   .container-custom {

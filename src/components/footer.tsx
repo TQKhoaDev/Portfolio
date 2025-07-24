@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { HiMail, HiPhone } from "react-icons/hi";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   const socialLinks = [
@@ -14,11 +14,6 @@ const Footer = () => {
       href: "https://www.linkedin.com/in/qu%E1%BB%91c-khoa-tr%E1%BA%A7n-7b19ba353/",
       label: "LinkedIn",
     },
-    {
-      icon: FaTwitter,
-      href: "https://twitter.com/yourusername",
-      label: "Twitter",
-    },
   ];
 
   return (
@@ -27,7 +22,7 @@ const Footer = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className="mt-2 -mx-8 md:-mx-12 lg:-mx-16"
+      className="mt-8"
     >
       <div className="bg-white p-8 md:p-12 lg:p-16 shadow-lg">
         <div className="max-w-7xl mx-auto">
