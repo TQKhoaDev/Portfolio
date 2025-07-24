@@ -34,10 +34,7 @@ const Hero = () => {
   };
 
   return (
-    <section
-      id="home"
-      className="min-h-screen flex items-center relative overflow-hidden"
-    >
+    <section id="home" className="relative overflow-hidden">
       {/* Enhanced Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800"></div>
       <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/50 via-transparent to-emerald-900/30"></div>

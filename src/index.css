@@ -10,24 +10,16 @@
   
   html {
     scroll-behavior: smooth;
-    /* Prevent horizontal scroll on mobile */
     overflow-x: hidden;
-    /* Ensure stable page height */
     min-height: 100%;
   }
   
   body {
     @apply bg-white text-slate-900 font-sans;
-    /* Prevent horizontal scroll on mobile */
     overflow-x: hidden;
-    /* Better text rendering */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* Remove padding to fix double scroll */
-    /* padding-top: 80px; */
-    /* Better line height for Vietnamese text */
     line-height: 1.6;
-    /* Ensure stable page height */
     min-height: 100vh;
   }
   
@@ -36,21 +28,18 @@
     scroll-margin-top: 100px;
   }
   
-  /* Special handling for hero section */
+  /* Special handling for hero section - FIXED VERSION */
   #home {
-    /* Remove negative margin since body no longer has padding */
-    /* margin-top: -80px; */
     padding-top: 80px;
-    /* Fix: Make total height = 100vh instead of 100vh + padding */
-    min-height: calc(100vh - 80px) !important;
-    height: 100vh;
+    min-height: 100vh;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
   }
   
   /* Fix Vietnamese text rendering */
   h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
-    /* Reduce padding to prevent excessive spacing */
     padding-top: 0.05em;
     padding-bottom: 0.05em;
   }
@@ -64,7 +53,6 @@
 @layer components {
   .gradient-text {
     @apply bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent;
-    /* Fix for gradient text with Vietnamese diacritics */
     line-height: 1.4;
     padding: 0.1em 0;
   }
@@ -102,7 +90,6 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     line-height: 1.5;
-    /* Add padding for diacritics */
     padding-top: 0.1em;
     padding-bottom: 0.1em;
   }
@@ -176,7 +163,6 @@
   .vietnamese-text {
     line-height: 1.4;
     padding: 0.05em 0;
-    /* Ensure diacritics are not cut off */
     overflow: visible;
   }
   
@@ -204,8 +190,6 @@
 /* Mobile-specific fixes */
 @media (max-width: 640px) {
   body {
-    /* Remove padding to fix double scroll */
-    /* padding-top: 64px; */
     line-height: 1.6;
   }
   
@@ -214,20 +198,17 @@
   }
   
   #home {
-    /* Remove negative margin since body no longer has padding */
-    /* margin-top: -64px; */
     padding-top: 64px;
-    /* Fix: Make total height = 100vh instead of 100vh + padding */
-    min-height: calc(100vh - 64px) !important;
-    height: 100vh;
+    min-height: 100vh;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
   }
   
   .container-custom {
     @apply px-4;
   }
   
-  /* Better Vietnamese text rendering on mobile */
   h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
     padding: 0.05em 0;
@@ -249,8 +230,6 @@
 /* Tablet optimizations */
 @media (min-width: 641px) and (max-width: 1024px) {
   body {
-    /* Remove padding to fix double scroll */
-    /* padding-top: 72px; */
     line-height: 1.6;
   }
   
@@ -259,13 +238,11 @@
   }
   
   #home {
-    /* Remove negative margin since body no longer has padding */
-    /* margin-top: -72px; */
     padding-top: 72px;
-    /* Fix: Make total height = 100vh instead of 100vh + padding */
-    min-height: calc(100vh - 72px) !important;
-    height: 100vh;
+    min-height: 100vh;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
   }
   
   .container-custom {
@@ -281,8 +258,6 @@
 /* Desktop optimizations */
 @media (min-width: 1025px) {
   body {
-    /* Remove padding to fix double scroll */
-    /* padding-top: 80px; */
     line-height: 1.6;
   }
   
@@ -291,13 +266,11 @@
   }
   
   #home {
-    /* Remove negative margin since body no longer has padding */
-    /* margin-top: -80px; */
     padding-top: 80px;
-    /* Fix: Make total height = 100vh instead of 100vh + padding */
-    min-height: calc(100vh - 80px) !important;
-    height: 100vh;
+    min-height: 100vh;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
   }
   
   .container-custom {
