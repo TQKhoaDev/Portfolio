@@ -57,6 +57,9 @@ const Skills = () => {
 
   return (
     <section id="skills" className="section-padding bg-gray-50">
+      {/* kẻ ngang*/}
+      <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-6"></div>
+
       <div className="container-custom">
         {/* Tech Stack Showcase */}
         <motion.div

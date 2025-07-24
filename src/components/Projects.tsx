@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { HiExternalLink, HiCode, HiX, HiPlay } from "react-icons/hi";
+import { HiCode, HiX, HiPlay, HiExternalLink } from "react-icons/hi";
 import {
   FaGithub,
   FaReact,
@@ -44,11 +44,11 @@ const Projects = () => {
     {
       id: 1,
       title: "Hệ thống thi trực tuyến realtime",
-      description: "Hệ thống thi trực tuyến với React và Node.js",
+      description: "Module thi Olympic Tin học trực tuyến với React và Node.js",
       longDescription:
-        "Hệ thống thi trực tuyến realtime có chống gian lận, hỗ trợ làm bài, hồi sinh thí sinh và theo dõi trạng thái realtime. Sử dụng React, Node.js, Socket.IO và MySQL.",
-      image: "/api/placeholder/600/400",
-      videoUrl: "/videos/ecommerce-demo.mp4", // Thay bằng video thật
+        "Module thi trực tuyến được phát triển cho cuộc thi Olympic Tin học, nâng cấp từ phần mềm cũ của trường. Hệ thống có khả năng chống gian lận, hỗ trợ làm bài realtime, tính năng hồi sinh thí sinh khi mất kết nối và theo dõi trạng thái thi cử trực tiếp. Được xây dựng với công nghệ hiện đại như React, Node.js, Socket.IO và MySQL để đảm bảo hiệu suất ổn định.",
+      image: "/olympic.png",
+      videoUrl: undefined,
       technologies: [
         "Node.js",
         "Express",
@@ -60,19 +60,22 @@ const Projects = () => {
         "TailwindCSS",
         "MySQL",
       ],
-      githubUrl: "https://github.com/yourusername/ecommerce",
-      liveUrl: "https://your-ecommerce-demo.vercel.app",
+      githubUrl: "https://github.com/TQKhoaDev/Contest_Online",
+      liveUrl:
+        "https://youtube.com/playlist?list=PLqSlraRmcchjA3nsXUDjzxdFZ7lt2so21&si=XEAK8MEWxks1SpQW",
       category: "web",
     },
     {
       id: 2,
       title: "E-Commerce Website",
-      description: "Ứng dụng quản lý công việc với drag & drop",
-      longDescription: "Website thương mại điện tử hiện đại với",
-      image: "/api/placeholder/600/400",
-      videoUrl: "/videos/task-app-demo.mp4",
-      technologies: ["Laravel", "HTML", "CSS3"],
-      githubUrl: "https://github.com/yourusername/task-app",
+      description: "Website thương mại điện tử hoàn chỉnh với đầy đủ tính năng",
+      longDescription:
+        "Website thương mại điện tử hiện đại với hệ thống quản lý sản phẩm, giỏ hàng thông minh, tích hợp thanh toán MoMo, hệ thống đánh giá và nhận xét sản phẩm. Bao gồm trang quản trị admin để quản lý đơn hàng, khách hàng và thống kê doanh thu. Giao diện responsive, thân thiện với người dùng trên mọi thiết bị.",
+      image: "/Demo.png",
+      videoUrl: undefined,
+      technologies: ["Laravel", "HTML", "CSS3", "JavaScript", "MySQL"],
+      githubUrl:
+        "https://github.com/minhdat204/Ecommerce_project?tab=readme-ov-file",
       liveUrl: "https://your-task-app.vercel.app",
       category: "web",
     },
@@ -146,7 +149,10 @@ const Projects = () => {
       : projects.filter((project) => project.category === activeFilter);
 
   return (
-    <section id="projects" className="section-padding bg-white">
+    <section id="projects" className="section-padding bg-gray-50">
+      {/* kẻ ngang*/}
+      <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-6"></div>
+
       <div className="container-custom">
         {/* Header */}
         <motion.div
@@ -157,7 +163,7 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-slate-800 via-blue-700 to-indigo-700 bg-clip-text text-transparent leading-tight">
-            Dự án của tôi
+            Dự án
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Khám phá các dự án tôi đã thực hiện với video demo trực quan
@@ -220,10 +226,24 @@ const Projects = () => {
                       <source src={project.videoUrl} type="video/mp4" />
                     </video>
                   ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
-                      <div className="text-primary-600 text-4xl">🚀</div>
-                    </div>
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        // Fallback to placeholder if image fails to load
+                        e.currentTarget.style.display = "none";
+                        e.currentTarget.nextElementSibling?.classList.remove(
+                          "hidden"
+                        );
+                      }}
+                    />
                   )}
+
+                  {/* Fallback placeholder (hidden by default) */}
+                  <div className="hidden w-full h-full bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center absolute inset-0">
+                    <div className="text-primary-600 text-4xl">🚀</div>
+                  </div>
 
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -284,18 +304,20 @@ const Projects = () => {
                       <span className="text-sm">Code</span>
                     </motion.a>
 
-                    <motion.a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors"
-                    >
-                      <HiExternalLink size={16} />
-                      <span className="text-sm">Live</span>
-                    </motion.a>
+                    {project.id === 1 && (
+                      <motion.a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={(e) => e.stopPropagation()}
+                        className="flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors"
+                      >
+                        <HiExternalLink size={16} />
+                        <span className="text-sm">Demo</span>
+                      </motion.a>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -349,10 +371,22 @@ const Projects = () => {
                         />
                       </video>
                     ) : (
-                      <div className="w-full h-64 md:h-80 bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
-                        <div className="text-primary-600 text-6xl">🚀</div>
-                      </div>
+                      <img
+                        src={selectedProject.image}
+                        alt={selectedProject.title}
+                        className="w-full h-64 md:h-80 object-cover"
+                        onError={(e) => {
+                          // Fallback to placeholder if image fails to load
+                          e.currentTarget.style.display = "none";
+                          e.currentTarget.nextElementSibling?.classList.remove(
+                            "hidden"
+                          );
+                        }}
+                      />
                     )}
+
+                    {/* Fallback placeholder for modal (hidden by default) */}
+
                   </div>
 
                   {/* Description */}
@@ -396,17 +430,19 @@ const Projects = () => {
                       Xem mã nguồn
                     </motion.a>
 
-                    <motion.a
-                      href={selectedProject.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="btn-primary flex items-center gap-2"
-                    >
-                      <HiExternalLink size={20} />
-                      Xem demo live
-                    </motion.a>
+                    {selectedProject.id === 1 && (
+                      <motion.a
+                        href={selectedProject.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="btn-primary flex items-center gap-2"
+                      >
+                        <HiExternalLink size={20} />
+                        Xem demo
+                      </motion.a>
+                    )}
                   </div>
                 </div>
               </motion.div>

@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { HiMail, HiPhone } from "react-icons/hi";
-import { FaGithub, FaLinkedin, FaFacebook, FaTwitter } from "react-icons/fa";
 
 const Contact = () => {
   const contactInfo = [
@@ -18,31 +17,12 @@ const Contact = () => {
     },
   ];
 
-  const socialLinks = [
-    {
-      icon: FaGithub,
-      href: "https://github.com/yourusername",
-      label: "GitHub",
-    },
-    {
-      icon: FaLinkedin,
-      href: "https://linkedin.com/in/yourusername",
-      label: "LinkedIn",
-    },
-    {
-      icon: FaFacebook,
-      href: "https://facebook.com/yourusername",
-      label: "Facebook",
-    },
-    {
-      icon: FaTwitter,
-      href: "https://twitter.com/yourusername",
-      label: "Twitter",
-    },
-  ];
 
   return (
     <section id="contact" className="section-padding bg-gray-50">
+            {/* kẻ ngang*/}
+            <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-6"></div>
+
       <div className="container-custom">
         {/* Header */}
         <motion.div
@@ -94,35 +74,8 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <h4 className="text-lg font-semibold text-gray-800 mb-4">
-                Theo dõi tôi
-              </h4>
-              <div className="flex justify-center gap-4">
-                {socialLinks.map((social) => (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="w-12 h-12 bg-white rounded-lg shadow-md border border-gray-100 flex items-center justify-center text-gray-600 hover:text-primary-600 hover:shadow-lg transition-all duration-300"
-                  >
-                    <social.icon size={20} />
-                  </motion.a>
-                ))}
-              </div>
-            </motion.div>
           </motion.div>
         </div>
-
       </div>
     </section>
   );

@@ -1,23 +1,18 @@
 import { motion } from "framer-motion";
 import { HiMail, HiPhone } from "react-icons/hi";
-import { FaGithub, FaLinkedin, FaFacebook, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   const socialLinks = [
     {
       icon: FaGithub,
-      href: "https://github.com/yourusername",
+      href: "https://github.com/TQKhoaDev",
       label: "GitHub",
     },
     {
       icon: FaLinkedin,
-      href: "https://linkedin.com/in/yourusername",
+      href: "https://www.linkedin.com/in/qu%E1%BB%91c-khoa-tr%E1%BA%A7n-7b19ba353/",
       label: "LinkedIn",
-    },
-    {
-      icon: FaFacebook,
-      href: "https://facebook.com/yourusername",
-      label: "Facebook",
     },
     {
       icon: FaTwitter,
@@ -49,8 +44,8 @@ const Footer = () => {
               </div>
               <p className="text-gray-600 text-sm leading-relaxed mb-6">
                 Full-stack developer định hướng backend, từng phát triển hệ
-                thống thi trực tuyến. Cùng xây dựng những giải pháp thực
-                sự hữu ích!
+                thống thi trực tuyến. Cùng xây dựng những giải pháp thực sự hữu
+                ích!
               </p>
               <div className="flex gap-3">
                 {socialLinks.slice(0, 3).map((social) => (
@@ -72,32 +67,32 @@ const Footer = () => {
             {/* Quick Links */}
             <div>
               <h4 className="text-lg font-semibold text-gray-800 mb-4">
-                Quick Links
+                Liên kết nhanh
               </h4>
               <div className="space-y-3">
                 <a
                   href="#home"
                   className="block text-gray-600 hover:text-gray-800 transition-colors duration-300"
                 >
-                  Home
+                  Trang chủ
                 </a>
                 <a
                   href="#about"
                   className="block text-gray-600 hover:text-gray-800 transition-colors duration-300"
                 >
-                  About
+                  Giới thiệu
                 </a>
                 <a
                   href="#projects"
                   className="block text-gray-600 hover:text-gray-800 transition-colors duration-300"
                 >
-                  Projects
+                  Dự án
                 </a>
                 <a
                   href="#skills"
                   className="block text-gray-600 hover:text-gray-800 transition-colors duration-300"
                 >
-                  Skills
+                  Kỹ năng
                 </a>
               </div>
             </div>
@@ -105,10 +100,10 @@ const Footer = () => {
             {/* Services */}
             <div>
               <h4 className="text-lg font-semibold text-gray-800 mb-4">
-                Services
+                Dịch vụ
               </h4>
               <div className="space-y-3">
-                <p className="text-gray-600">Web Development</p>
+                <p className="text-gray-600">Phát triển Web</p>
                 {/* <p className="text-gray-600">UI/UX Design</p>
                 <p className="text-gray-600">Mobile Apps</p>
                 <p className="text-gray-600">Consulting</p> */}
@@ -118,7 +113,7 @@ const Footer = () => {
             {/* Get In Touch */}
             <div>
               <h4 className="text-lg font-semibold text-gray-800 mb-4">
-                Get In Touch
+                Liên hệ
               </h4>
               <div className="space-y-3 mb-6">
                 <div className="flex items-center gap-2 text-gray-600">
@@ -146,6 +141,9 @@ const Footer = () => {
               </div>
             </div>
           </div>
+
+          {/* Đường kẻ ngang tinh tế */}
+          <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-6"></div>
         </div>
       </div>
     </motion.div>

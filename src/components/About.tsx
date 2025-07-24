@@ -93,7 +93,7 @@ const About = () => {
               variants={itemVariants}
               className="text-4xl font-bold text-slate-800 mb-12 leading-tight text-center"
             >
-              Xin chào! Tôi là 2
+              Xin chào! Tôi là
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 {" "}
                 Trần Quốc Khoa
@@ -116,7 +116,7 @@ const About = () => {
                       <strong className="text-slate-800">
                         Trường Cao đẳng Kỹ thuật Cao Thắng (2025)
                       </strong>{" "}
-                      với điểm tốt nghiệp cao nhất ngành{" "}
+                      với điểm đồ án tốt nghiệp cao nhất ngành{" "}
                       <strong className="text-slate-800">9.5/10</strong>.
                     </p>
                   </div>
@@ -180,25 +180,61 @@ const About = () => {
             </motion.div>
 
             <div className="text-center">
-              <motion.button
-                variants={itemVariants}
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 25px 50px rgba(59, 130, 246, 0.4)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-6 rounded-2xl font-semibold text-lg flex items-center gap-4 overflow-hidden shadow-xl mx-auto"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <motion.div
-                  whileHover={{ rotate: 15 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="relative z-10"
+              <div className="relative group inline-block">
+                <motion.button
+                  variants={itemVariants}
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 25px 50px rgba(59, 130, 246, 0.4)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-6 rounded-2xl font-semibold text-lg flex items-center gap-4 overflow-hidden shadow-xl mx-auto"
                 >
-                  <HiDownload size={22} />
-                </motion.div>
-                <span className="relative z-10">Tải CV & Portfolio</span>
-              </motion.button>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <motion.div
+                    whileHover={{ rotate: 15 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="relative z-10"
+                  >
+                    <HiDownload size={22} />
+                  </motion.div>
+                  <span className="relative z-10">Tải CV & Portfolio</span>
+                </motion.button>
+
+                {/* Dropdown Menu */}
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-64 bg-white border border-gray-200 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
+                  <a
+                    href="/TranQuocKhoa_TV.pdf"
+                    download="TranQuocKhoa_CV_TiengViet.pdf"
+                    className="block px-6 py-4 text-gray-700 hover:bg-blue-50 transition-colors duration-200 rounded-t-xl border-b border-gray-100"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-2xl">📄</span>
+                      <div>
+                        <div className="font-semibold">CV Tiếng Việt</div>
+                        <div className="text-sm text-gray-500">
+                          Tải xuống PDF
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="/TranQuocKhoa_TA.pdf"
+                    download="TranQuocKhoa_CV_TiengAnh.pdf"
+                    className="block px-6 py-4 text-gray-700 hover:bg-blue-50 transition-colors duration-200 rounded-b-xl"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-2xl">📄</span>
+                      <div>
+                        <div className="font-semibold">CV Tiếng Anh</div>
+                        <div className="text-sm text-gray-500">
+                          Download PDF
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
