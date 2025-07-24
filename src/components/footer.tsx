@@ -38,7 +38,7 @@ const Footer = () => {
                 </h3>
               </div>
               <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                Full-stack developer định hướng backend, từng phát triển hệ
+                Backend định hướng Full-stack developer, từng phát triển hệ
                 thống thi trực tuyến. Cùng xây dựng những giải pháp thực sự hữu
                 ích!
               </p>
